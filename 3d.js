@@ -46,20 +46,12 @@ scene.add( sphere );
 
 
 //----Load Enviroment Map
+var images = ["./3DFiles/sunset.exr", "./3DFiles/interior.exr", "./3DFiles/studio.exr", "./3DFiles/courtyard.exr"]
+var initial = 0;
 const pmremGenerator = new THREE.PMREMGenerator( renderer );
 pmremGenerator.compileEquirectangularShader();
+loadAmbientLight(initial)
 
-new THREE.EXRLoader()
-	.setDataType( THREE.UnsignedByteType )
-	.load( "./3DFiles/sunset.exr", function ( texture ) {
-
-		exrCubeRenderTarget = pmremGenerator.fromEquirectangular( texture );
-		exrBackground = exrCubeRenderTarget.texture;
-
-		sphere.material.envMap = exrBackground;
-		scene.background = exrBackground;
-		texture.dispose();
-} );
 
 
 function animate(){
@@ -67,6 +59,20 @@ function animate(){
 	sphere.rotation.y += .01;
  	controls.update();
 	renderer.render(scene, camera);
+}
+
+function loadAmbientLight(num){
+	new THREE.EXRLoader()
+		.setDataType( THREE.UnsignedByteType )
+		.load( images[num % 4], function ( texture ) {
+
+			exrCubeRenderTarget = pmremGenerator.fromEquirectangular( texture );
+			exrBackground = exrCubeRenderTarget.texture;
+
+			sphere.material.envMap = exrBackground;
+			scene.background = exrBackground;
+			texture.dispose();
+	} );
 }
 
 var sliderNormal = document.getElementById("normalRange");
@@ -79,7 +85,7 @@ var sliderRoughness = document.getElementById("roughnessRange");
 sliderRoughness.oninput = function() {
 	val = this.value/50
 	if(val > 1){
-		val = val*val;
+		val = val*val*val;
 	}
 	sphere.material.roughness = val; 
 }
@@ -92,8 +98,17 @@ sliderMetal.oninput = function() {
 
 var sliderAmbient = document.getElementById("ambientRange");
 sliderAmbient.oninput = function() {
-	val = this.value/100
+	val = this.value/50
+	if(val > 1){
+		val = val*val;
+	}
 	sphere.material.envMapIntensity = val; 
+}
+
+var buttonAmbient = document.getElementById("ambientButton");
+buttonAmbient.onclick = function() {
+	initial++;
+	loadAmbientLight(initial);
 }
 
 animate();
