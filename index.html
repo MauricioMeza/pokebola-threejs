@@ -2,7 +2,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
   <title>Three.js PBR</title>
   <meta name="description" content="Implementacion de materiales PBR con Three.js">
   <meta name="author" content="GraphicCuys">
@@ -12,6 +12,31 @@
 </head>
 
 <body>
+  <div class="row">
+    <div class="col lg-12" id="canvas3d">
+  
+    </div>
+    <div class="col lg-12" id="controls">
+      <br>
+      <h5> Mapa Normal </h5>
+      <p>Detalles en el objeto</p>
+      <input type="range" min="0" max="100" value="50" class="slider" id="normalRange">
+      <br> <hr>
+      <h5> Rugosidad / Roughness </h5>
+      <p>Cantidad de luz especular que se refleja</p>
+      <input type="range" min="0" max="100" value="50" class="slider" id="roughnessRange">
+      <br> <hr>
+      <h5> Metalicidad / Metallness </h5>
+      <p>Cantidad de luz difusa que se absorbe</p>
+      <input type="range" min="0" max="100" value="50" class="slider" id="metalRange">
+      <br> <hr>
+      <br> <hr><hr><br>
+      <h5> Iluminacion Ambiental </h5>
+      <p>Luz que se obtiene del HDRI</p>
+      <input type="range" min="0" max="100" value="100" class="slider" id="ambientRange">
+    </div>  
+  </div>
+  
   <script src="https://cdn.jsdelivr.net/npm/fflate@0.7.1/umd/index.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/three@0.130.1/build/three.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/three@0.130.1/examples/js/loaders/EXRLoader.js"></script>
