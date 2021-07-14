@@ -1,5 +1,5 @@
 //----Initial Setup
-var w = 1.25
+var w = 1.4
 var h = 1.03
 
 container = document.getElementById( 'canvas3d' );
