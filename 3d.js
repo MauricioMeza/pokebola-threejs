@@ -77,7 +77,7 @@ function loadAmbientLight(num){
 	} );
 }
 
-
+/*
 //----Functions for sliders and buttons
 var sliderNormal = document.getElementById("normalRange");
 sliderNormal.oninput = function() {
@@ -114,5 +114,6 @@ buttonAmbient.onclick = function() {
 	initial++;
 	loadAmbientLight(initial);
 }
+*/
 
 animate();
