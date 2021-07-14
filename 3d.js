@@ -1,6 +1,6 @@
 //----Initial Setup
-var w = 1
-var h = 1
+var w = 1.25
+var h = 1.03
 
 container = document.getElementById( 'canvas3d' );
 const scene = new THREE.Scene();
@@ -77,7 +77,7 @@ function loadAmbientLight(num){
 	} );
 }
 
-/*
+
 //----Functions for sliders and buttons
 var sliderNormal = document.getElementById("normalRange");
 sliderNormal.oninput = function() {
@@ -114,6 +114,5 @@ buttonAmbient.onclick = function() {
 	initial++;
 	loadAmbientLight(initial);
 }
-*/
 
 animate();
