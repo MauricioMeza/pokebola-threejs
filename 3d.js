@@ -1,6 +1,6 @@
 //----Initial Setup
-var w = 1.4
-var h = 1.03
+var w = 1
+var h = 1
 
 container = document.getElementById( 'canvas3d' );
 const scene = new THREE.Scene();
@@ -53,7 +53,7 @@ pmremGenerator.compileEquirectangularShader();
 loadAmbientLight(initial)
 
 
-
+//----Frame by Frame animation
 function animate(){
 	requestAnimationFrame(animate);
 	sphere.rotation.y += .01;
@@ -61,6 +61,8 @@ function animate(){
 	renderer.render(scene, camera);
 }
 
+
+//----Load HDRI from exr image
 function loadAmbientLight(num){
 	new THREE.EXRLoader()
 		.setDataType( THREE.UnsignedByteType )
@@ -75,6 +77,8 @@ function loadAmbientLight(num){
 	} );
 }
 
+
+//----Functions for sliders and buttons
 var sliderNormal = document.getElementById("normalRange");
 sliderNormal.oninput = function() {
 	val = this.value/100
