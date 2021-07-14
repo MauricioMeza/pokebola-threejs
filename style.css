@@ -7,6 +7,7 @@ canvas{
 }
 input{
 	width: 75%;
+	height: 1.5%;
 }
 #canvas3d{
 	padding: 0px;
@@ -15,8 +16,8 @@ input{
 	background-color: #cccccc;
 }
 .input-title{
-	font-size: 120%;
+	font-size: 80%;
 }
 .input-desc{
-	font-size: 80%;
+	font-size: 70%;
 }
