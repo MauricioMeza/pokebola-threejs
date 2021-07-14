@@ -12,4 +12,11 @@ input{
 	padding: 0px;
 }
 #controls{
-	background-color: #cccccc
+	background-color: #cccccc;
+}
+.input-title{
+	font-size: 120%;
+}
+.input-desc{
+	font-size: 80%;
+}
